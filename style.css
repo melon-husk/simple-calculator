@@ -19,9 +19,9 @@ body {
     "input-output input-output input-output input-output"
     "input-output input-output input-output input-output"
     "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
-    "ac parentheses percentage divide"
+    "ac parenthesis percentage divide"
     "seven eight nine multiply"
-    "four five six substract"
+    "four five six subtract"
     "one two three add"
     "zero period backspace equal";
   background: #ededed;
@@ -218,8 +218,8 @@ body {
   margin-right: 10px;
 }
 
-.substract {
-  grid-area: substract;
+.subtract {
+  grid-area: subtract;
   display: flex;
   border-radius: 20px;
   background: #dce3ea;
@@ -257,8 +257,8 @@ body {
   align-items: center; /* align vertical */
 }
 
-.parentheses {
-  grid-area: parentheses;
+.parenthesis {
+  grid-area: parenthesis;
   display: flex;
   border-radius: 20px;
   background: #dce3ea;
