@@ -1,0 +1,331 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
+html,
+body {
+  /* Remove any browser-default margins. */
+  margin: 0;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "input-output input-output input-output input-output"
+    "input-output input-output input-output input-output"
+    "input-output input-output input-output input-output"
+    "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
+    "ac parentheses percentage divide"
+    "seven eight nine multiply"
+    "four five six substract"
+    "one two three add"
+    "zero period backspace equal";
+  background: #ededed;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.input-output {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "input input input input"
+    "input input input input"
+    "output output output output";
+  font-size: 1.5rem;
+  grid-area: input-output;
+  border-radius: 0px 0px 20px 20px;
+}
+.sub-menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "square-root pi power factorial"
+    "sin cos tan log";
+  grid-area: sub-menu-one;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-size: 1.8rem;
+}
+.Input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+  grid-area: input;
+  background-color: #c6d4db;
+  padding-right: 15px;
+  font-size: 4rem;
+}
+
+.Output {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: output;
+  text-align: right;
+  font-size: 2rem;
+  background-color: #c6d4db;
+  border-radius: 0px 0px 20px 20px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+.square-root {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: square-root;
+}
+
+.sin {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: sin;
+}
+
+.pi {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: pi;
+}
+
+.cos {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: cos;
+}
+
+.power {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: power;
+}
+
+.tan {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: tan;
+}
+
+.factorial {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: factorial;
+}
+
+.log {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: log;
+}
+
+.ac {
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: ac;
+  margin-left: 10px;
+}
+
+.seven {
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: seven;
+  margin-left: 10px;
+}
+
+.four {
+  grid-area: four;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-left: 10px;
+}
+
+.zero {
+  grid-area: zero;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.period {
+  grid-area: period;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-bottom: 10px;
+}
+
+.backspace {
+  grid-area: backspace;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-bottom: 10px;
+}
+
+.equal {
+  grid-area: equal;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.multiply {
+  grid-area: multiply;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-right: 10px;
+}
+
+.substract {
+  grid-area: substract;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-right: 10px;
+}
+
+.add {
+  grid-area: add;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-right: 10px;
+}
+
+.divide {
+  grid-area: divide;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-right: 10px;
+}
+
+.percentage {
+  grid-area: percentage;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.parentheses {
+  grid-area: parentheses;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.eight {
+  grid-area: eight;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.nine {
+  grid-area: nine;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.five {
+  grid-area: five;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.six {
+  grid-area: six;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.three {
+  grid-area: three;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+}
+
+.two {
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  grid-area: two;
+}
+
+.one {
+  grid-area: one;
+  display: flex;
+  border-radius: 20px;
+  background: #dce3ea;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  margin-left: 10px;
+}
