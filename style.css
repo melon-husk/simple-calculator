@@ -64,7 +64,10 @@ body {
   grid-area: input;
   background-color: #c6d4db;
   padding-right: 15px;
-  font-size: 4rem;
+  font-size: 4.5rem;
+  border: none;
+  outline: none;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .Output {
