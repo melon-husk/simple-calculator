@@ -1,11 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 html,
 body {
-  /* Remove any browser-default margins. */
+  display: grid;
+  place-items: center;
+  height: 100vh;
   margin: 0;
   font-family: "Source Sans Pro", sans-serif;
 }
-
+:root {
+  --primary-display-color: #c6d4db;
+  --ac-btn-color: #abd88f;
+  --ac-btn-hover: #a4d078;
+  --primary-btn-color: #dce3ea;
+  --primary-btn-hover: #c6d4db;
+  --secondary-btn-color: #b9d5f5;
+  --secondary-btn-hover: #aec9f7;
+  --primary-bg-color: #ededed;
+  --sub-menu-hover-color: #d6d4d4;
+}
 .container {
   height: 100vh;
   width: 100vw;
@@ -41,6 +53,7 @@ body {
   font-size: 1.5rem;
   grid-area: input-output;
   border-radius: 0px 0px 20px 20px;
+  background: var(--primary-display-color);
 }
 .sub-menu {
   display: grid;
@@ -56,13 +69,13 @@ body {
   margin-left: 10px;
   font-size: 1.8rem;
 }
-.Input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.sub-menu-hover:hover {
+  background: var(--sub-menu-hover-color);
+}
+.input {
   text-align: right;
   grid-area: input;
-  background-color: #c6d4db;
+  background: inherit;
   padding-right: 15px;
   font-size: 4.5rem;
   border: none;
@@ -70,265 +83,282 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.Output {
+.output {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   grid-area: output;
   text-align: right;
   font-size: 2rem;
-  background-color: #c6d4db;
+  background: inherit;
   border-radius: 0px 0px 20px 20px;
   padding-right: 15px;
   padding-bottom: 10px;
 }
-
+.button {
+  border-radius: 20px;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.button:active {
+  border-radius: 10px;
+}
+.primary-btn {
+  background: var(--primary-btn-color);
+}
+.primary-btn:hover {
+  background: var(--primary-btn-hover);
+}
+.secondary-btn {
+  background: var(--secondary-btn-color);
+}
+.secondary-btn:hover {
+  background: var(--secondary-btn-hover);
+}
 .square-root {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: square-root;
 }
 
 .sin {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: sin;
 }
 
 .pi {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: pi;
 }
 
 .cos {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: cos;
 }
 
 .power {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: power;
 }
 
 .tan {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: tan;
 }
 
 .factorial {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: factorial;
 }
 
 .log {
-  display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: log;
 }
 
 .ac {
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: ac;
+  background: var(--ac-btn-color);
   margin-left: 10px;
+}
+.ac:hover {
+  background: var(--ac-btn-hover);
 }
 
 .seven {
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: seven;
   margin-left: 10px;
 }
 
 .four {
   grid-area: four;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   margin-left: 10px;
 }
 
 .zero {
   grid-area: zero;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 .decimal {
   grid-area: decimal;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   margin-bottom: 10px;
 }
 
 .backspace {
   grid-area: backspace;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   margin-bottom: 10px;
 }
 
 .equal {
   grid-area: equal;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
 .multiply {
   grid-area: multiply;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
   margin-right: 10px;
 }
 
 .subtract {
   grid-area: subtract;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
   margin-right: 10px;
 }
 
 .add {
   grid-area: add;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
   margin-right: 10px;
 }
 
 .divide {
   grid-area: divide;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
   margin-right: 10px;
 }
 
 .percentage {
   grid-area: percentage;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
 }
 
 .parenthesis {
   grid-area: parenthesis;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
+  background: var(--secondary-btn-color);
 }
 
 .eight {
   grid-area: eight;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
 }
 
 .nine {
   grid-area: nine;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
 }
 
 .five {
   grid-area: five;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
 }
 
 .six {
   grid-area: six;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
 }
 
 .three {
   grid-area: three;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
 }
 
 .two {
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   grid-area: two;
 }
 
 .one {
   grid-area: one;
-  display: flex;
-  border-radius: 20px;
-  background: #dce3ea;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
   margin-left: 10px;
+}
+@media screen and (min-width: 768px) {
+  body {
+    background-color: #2b3f56;
+  }
+  .container {
+    height: 70vh;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "input-output input-output input-output input-output"
+      "input-output input-output input-output input-output"
+      "input-output input-output input-output input-output"
+      "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
+      "ac parenthesis percentage divide"
+      "seven eight nine multiply"
+      "four five six subtract"
+      "one two three add"
+      "zero decimal backspace equal";
+    background: #ededed;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
+
+  .input {
+    text-align: right;
+    grid-area: input;
+    background-color: #c6d4db;
+    padding-right: 15px;
+    font-size: 4.5rem;
+    border: none;
+    outline: none;
+    font-family: "Source Sans Pro", sans-serif;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .input-output {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "input input input input"
+      "input input input input"
+      "output output output output";
+    font-size: 1.5rem;
+    grid-area: input-output;
+    border-radius: 20px 20px 20px 20px;
+    background: var(--primary-display-color);
+  }
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    height: 70vh;
+    width: 50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "input-output input-output input-output input-output"
+      "input-output input-output input-output input-output"
+      "input-output input-output input-output input-output"
+      "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
+      "ac parenthesis percentage divide"
+      "seven eight nine multiply"
+      "four five six subtract"
+      "one two three add"
+      "zero decimal backspace equal";
+    background: #ededed;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .container {
+    height: 70vh;
+    width: 30vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "input-output input-output input-output input-output"
+      "input-output input-output input-output input-output"
+      "input-output input-output input-output input-output"
+      "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
+      "ac parenthesis percentage divide"
+      "seven eight nine multiply"
+      "four five six subtract"
+      "one two three add"
+      "zero decimal backspace equal";
+    background: #ededed;
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+  }
 }
