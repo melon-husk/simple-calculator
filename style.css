@@ -19,11 +19,11 @@ body {
     "input-output input-output input-output input-output"
     "input-output input-output input-output input-output"
     "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
-    "ac parentheses percentage divide"
+    "ac parenthesis percentage divide"
     "seven eight nine multiply"
-    "four five six substract"
+    "four five six subtract"
     "one two three add"
-    "zero period backspace equal";
+    "zero decimal backspace equal";
   background: #ededed;
   text-align: center;
   font-size: 2.5rem;
@@ -64,7 +64,10 @@ body {
   grid-area: input;
   background-color: #c6d4db;
   padding-right: 15px;
-  font-size: 4rem;
+  font-size: 4.5rem;
+  border: none;
+  outline: none;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .Output {
@@ -177,8 +180,8 @@ body {
   margin-left: 10px;
 }
 
-.period {
-  grid-area: period;
+.decimal {
+  grid-area: decimal;
   display: flex;
   border-radius: 20px;
   background: #dce3ea;
@@ -218,8 +221,8 @@ body {
   margin-right: 10px;
 }
 
-.substract {
-  grid-area: substract;
+.subtract {
+  grid-area: subtract;
   display: flex;
   border-radius: 20px;
   background: #dce3ea;
@@ -257,8 +260,8 @@ body {
   align-items: center; /* align vertical */
 }
 
-.parentheses {
-  grid-area: parentheses;
+.parenthesis {
+  grid-area: parenthesis;
   display: flex;
   border-radius: 20px;
   background: #dce3ea;
