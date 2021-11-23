@@ -23,7 +23,7 @@ body {
     "seven eight nine multiply"
     "four five six subtract"
     "one two three add"
-    "zero period backspace equal";
+    "zero decimal backspace equal";
   background: #ededed;
   text-align: center;
   font-size: 2.5rem;
@@ -64,7 +64,10 @@ body {
   grid-area: input;
   background-color: #c6d4db;
   padding-right: 15px;
-  font-size: 4rem;
+  font-size: 4.5rem;
+  border: none;
+  outline: none;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .Output {
@@ -177,8 +180,8 @@ body {
   margin-left: 10px;
 }
 
-.period {
-  grid-area: period;
+.decimal {
+  grid-area: decimal;
   display: flex;
   border-radius: 20px;
   background: #dce3ea;
