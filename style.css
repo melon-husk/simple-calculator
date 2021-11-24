@@ -21,6 +21,7 @@ body {
   --secondary-btn-bg-hover: #aec9f7;
   --sub-menu-hover-bg-color: #d6d4d4;
   --theme-toggle-bg-color: #1a1a1a;
+  --theme-toggle-stroke-color: #ededed;
 }
 [data-theme="dark"] {
   --container-bg-color: #1a1a1a;
@@ -36,6 +37,7 @@ body {
   --secondary-btn-bg-hover: #69a9e6;
   --sub-menu-hover-bg-color: #222222;
   --theme-toggle-bg-color: #ededed;
+  --theme-toggle-stroke-color: #1a1a1a;
 }
 button {
   outline: none;
@@ -50,7 +52,7 @@ button {
   cursor: pointer;
   z-index: 1;
   fill: var(--theme-toggle-bg-color);
-  stroke: transparent;
+  stroke: var(--theme-toggle-stroke-color);
 }
 
 .container {
