@@ -27,7 +27,7 @@ const output = <HTMLDivElement>document.querySelector("div.output");
 const originalFontSize = parseInt(window.getComputedStyle(input).fontSize);
 themeToggle?.addEventListener("click", () => {
   if (
-    document.documentElement.getAttribute("data-theme") === "null" ||
+    document.documentElement.getAttribute("data-theme") === null ||
     document.documentElement.getAttribute("data-theme") === "light"
   ) {
     document.documentElement.setAttribute("data-theme", "dark");
