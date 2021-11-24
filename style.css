@@ -18,6 +18,9 @@ body {
   --primary-bg-color: #ededed;
   --sub-menu-hover-color: #d6d4d4;
 }
+button {
+  outline: none;
+}
 .container {
   height: 100vh;
   width: 100vw;
@@ -77,7 +80,7 @@ body {
   grid-area: input;
   background: inherit;
   padding-right: 15px;
-  font-size: 4.5rem;
+  font-size: 4rem;
   border: none;
   outline: none;
   font-family: "Source Sans Pro", sans-serif;
@@ -257,108 +260,39 @@ body {
 @media screen and (min-width: 768px) {
   body {
     background-color: #2b3f56;
+    height: 100vh;
   }
   .container {
     height: 70vh;
     width: 60vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "input-output input-output input-output input-output"
-      "input-output input-output input-output input-output"
-      "input-output input-output input-output input-output"
-      "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
-      "ac parenthesis percentage divide"
-      "seven eight nine multiply"
-      "four five six subtract"
-      "one two three add"
-      "zero decimal backspace equal";
-    background: #ededed;
-    text-align: center;
     font-size: 2.5rem;
     padding: 1rem 2rem;
     border-radius: 10px;
   }
 
   .input {
-    text-align: right;
-    grid-area: input;
-    background-color: #c6d4db;
     padding-right: 15px;
-    font-size: 4.5rem;
-    border: none;
-    outline: none;
-    font-family: "Source Sans Pro", sans-serif;
     border-radius: 20px 20px 0px 0px;
   }
   .input-output {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "input input input input"
-      "input input input input"
-      "output output output output";
     font-size: 1.5rem;
-    grid-area: input-output;
     border-radius: 20px 20px 20px 20px;
-    background: var(--primary-display-color);
   }
 }
+
 @media screen and (min-width: 1024px) {
   .container {
-    height: 70vh;
-    width: 50vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "input-output input-output input-output input-output"
-      "input-output input-output input-output input-output"
-      "input-output input-output input-output input-output"
-      "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
-      "ac parenthesis percentage divide"
-      "seven eight nine multiply"
-      "four five six subtract"
-      "one two three add"
-      "zero decimal backspace equal";
-    background: #ededed;
-    text-align: center;
+    height: 90vh;
+    width: 55vw;
     font-size: 2.5rem;
     padding: 1rem 2rem;
-    border-radius: 10px;
   }
 }
 @media screen and (min-width: 1440px) {
   .container {
     height: 70vh;
     width: 30vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "input-output input-output input-output input-output"
-      "input-output input-output input-output input-output"
-      "input-output input-output input-output input-output"
-      "sub-menu-one sub-menu-one sub-menu-one sub-menu-one"
-      "ac parenthesis percentage divide"
-      "seven eight nine multiply"
-      "four five six subtract"
-      "one two three add"
-      "zero decimal backspace equal";
-    background: #ededed;
-    text-align: center;
     font-size: 2.5rem;
     padding: 1rem 2rem;
-    border-radius: 10px;
   }
 }
