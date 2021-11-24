@@ -1,35 +1,4 @@
 "use strict";
-var Buttons;
-(function (Buttons) {
-    Buttons["square_root"] = "square-root";
-    Buttons["pi"] = "pi";
-    Buttons["power"] = "power";
-    Buttons["factorial"] = "factorial";
-    Buttons["sin"] = "sin";
-    Buttons["cos"] = "cos";
-    Buttons["tan"] = "tan";
-    Buttons["log"] = "log";
-    Buttons["ac"] = "ac";
-    Buttons["parenthesis"] = "parenthesis";
-    Buttons["percentage"] = "percentage";
-    Buttons["divide"] = "divide";
-    Buttons["seven"] = "seven";
-    Buttons["eight"] = "eight";
-    Buttons["nine"] = "nine";
-    Buttons["multiply"] = "multiply";
-    Buttons["four"] = "four";
-    Buttons["five"] = "five";
-    Buttons["six"] = "six";
-    Buttons["subtract"] = "subtract";
-    Buttons["one"] = "one";
-    Buttons["two"] = "two";
-    Buttons["three"] = "three";
-    Buttons["add"] = "add";
-    Buttons["zero"] = "zero";
-    Buttons["decimal"] = "decimal";
-    Buttons["backspace"] = "backspace";
-    Buttons["equals"] = "equals";
-})(Buttons || (Buttons = {}));
 let expression = "";
 let expressionArray = [];
 let inputArray = [];
@@ -77,7 +46,6 @@ window.addEventListener("keydown", (event) => {
         inputArray.pop();
         input.value = inputArray.join("");
     }
-    // Check if event.key is present in allowedKeyboardKeys
     if (allowedKeyboardKeys.includes(event.key)) {
         expressionArray.push(event.key);
         inputArray.push(event.key);
@@ -251,6 +219,7 @@ buttons.forEach((button) => {
                     expressionArray.pop();
                     inputArray.pop();
                     input.value = inputArray.join("");
+                    output.innerText = "";
                     break;
                 case "=":
                     output.innerText = eval(expressionArray.join("")).toString();

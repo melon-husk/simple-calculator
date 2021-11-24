@@ -1,33 +1,3 @@
-enum Buttons {
-  square_root = "square-root",
-  pi = "pi",
-  power = "power",
-  factorial = "factorial",
-  sin = "sin",
-  cos = "cos",
-  tan = "tan",
-  log = "log",
-  ac = "ac",
-  parenthesis = "parenthesis",
-  percentage = "percentage",
-  divide = "divide",
-  seven = "seven",
-  eight = "eight",
-  nine = "nine",
-  multiply = "multiply",
-  four = "four",
-  five = "five",
-  six = "six",
-  subtract = "subtract",
-  one = "one",
-  two = "two",
-  three = "three",
-  add = "add",
-  zero = "zero",
-  decimal = "decimal",
-  backspace = "backspace",
-  equals = "equals",
-}
 let expression = <string>"";
 let expressionArray: string[] = [];
 let inputArray: string[] = [];
@@ -76,7 +46,6 @@ window.addEventListener("keydown", (event) => {
     inputArray.pop();
     input.value = inputArray.join("");
   }
-  // Check if event.key is present in allowedKeyboardKeys
   if (allowedKeyboardKeys.includes(event.key)) {
     expressionArray.push(event.key);
     inputArray.push(event.key);
@@ -248,6 +217,7 @@ buttons.forEach((button) => {
           expressionArray.pop();
           inputArray.pop();
           input.value = inputArray.join("");
+          output.innerText = "";
           break;
         case "=":
           output.innerText = eval(expressionArray.join("")).toString();
