@@ -8,19 +8,51 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 :root {
-  --primary-display-color: #c6d4db;
-  --ac-btn-color: #abd88f;
-  --ac-btn-hover: #a4d078;
-  --primary-btn-color: #dce3ea;
-  --primary-btn-hover: #c6d4db;
-  --secondary-btn-color: #b9d5f5;
-  --secondary-btn-hover: #aec9f7;
-  --primary-bg-color: #ededed;
-  --sub-menu-hover-color: #d6d4d4;
+  --container-bg-color: #ededed;
+  --primary-text-color: #000000;
+  --secondary-text-color: #404040;
+  --primary-display-bg-color: #c6d4db;
+  --accent-text-color: #000000;
+  --ac-btn-bg-color: #abd88f;
+  --ac-btn-bg-hover: #a4d078;
+  --primary-btn-bg-color: #dce3ea;
+  --primary-btn-bg-hover: #c6d4db;
+  --secondary-btn-bg-color: #b9d5f5;
+  --secondary-btn-bg-hover: #aec9f7;
+  --sub-menu-hover-bg-color: #d6d4d4;
+  --theme-toggle-bg-color: #1a1a1a;
+}
+[data-theme="dark"] {
+  --container-bg-color: #1a1a1a;
+  --primary-text-color: #fffdea;
+  --secondary-text-color: #dedcca;
+  --primary-display-bg-color: #495a62;
+  --accent-text-color: #222222;
+  --ac-btn-bg-color: #b4dc9b;
+  --ac-btn-bg-hover: #a4d078;
+  --primary-btn-bg-color: #222222;
+  --primary-btn-bg-hover: #444444;
+  --secondary-btn-bg-color: #619dd4;
+  --secondary-btn-bg-hover: #69a9e6;
+  --sub-menu-hover-bg-color: #222222;
+  --theme-toggle-bg-color: #ededed;
 }
 button {
   outline: none;
 }
+.theme-toggle {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: 1;
+  fill: var(--theme-toggle-bg-color);
+  stroke: transparent;
+}
+
 .container {
   height: 100vh;
   width: 100vw;
@@ -39,9 +71,10 @@ button {
     "four five six subtract"
     "one two three add"
     "zero decimal backspace equal";
-  background: #ededed;
+  background: var(--container-bg-color);
   text-align: center;
   font-size: 2.5rem;
+  color: var(--primary-text-color);
 }
 .input-output {
   display: grid;
@@ -56,7 +89,7 @@ button {
   font-size: 1.5rem;
   grid-area: input-output;
   border-radius: 0px 0px 20px 20px;
-  background: var(--primary-display-color);
+  background: var(--primary-display-bg-color);
 }
 .sub-menu {
   display: grid;
@@ -73,7 +106,7 @@ button {
   font-size: 1.8rem;
 }
 .sub-menu-hover:hover {
-  background: var(--sub-menu-hover-color);
+  background: var(--sub-menu-hover-bg-color);
 }
 .input {
   text-align: right;
@@ -84,6 +117,7 @@ button {
   border: none;
   outline: none;
   font-family: "Source Sans Pro", sans-serif;
+  color: inherit;
 }
 
 .output {
@@ -97,6 +131,7 @@ button {
   border-radius: 0px 0px 20px 20px;
   padding-right: 15px;
   padding-bottom: 10px;
+  color: var(--secondary-text-color);
 }
 .button {
   border-radius: 20px;
@@ -105,21 +140,25 @@ button {
   font-family: inherit;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
+  background: transparent;
+  color: inherit;
 }
 .button:active {
   border-radius: 10px;
 }
 .primary-btn {
-  background: var(--primary-btn-color);
+  background: var(--primary-btn-bg-color);
+  color: var(--primary-text-color);
 }
 .primary-btn:hover {
-  background: var(--primary-btn-hover);
+  background: var(--primary-btn-bg-hover);
 }
 .secondary-btn {
   background: var(--secondary-btn-color);
+  color: var(--accent-text-color);
 }
 .secondary-btn:hover {
-  background: var(--secondary-btn-hover);
+  background: var(--secondary-btn-bg-hover);
 }
 .square-root {
   grid-area: square-root;
@@ -155,11 +194,12 @@ button {
 
 .ac {
   grid-area: ac;
-  background: var(--ac-btn-color);
+  background: var(--ac-btn-bg-color);
+  color: var(--accent-text-color);
   margin-left: 10px;
 }
 .ac:hover {
-  background: var(--ac-btn-hover);
+  background: var(--ac-btn-bg-hover);
 }
 
 .seven {
@@ -190,43 +230,43 @@ button {
 
 .equal {
   grid-area: equal;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
   margin-right: 10px;
   margin-bottom: 10px;
 }
 
 .multiply {
   grid-area: multiply;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .subtract {
   grid-area: subtract;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .add {
   grid-area: add;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .divide {
   grid-area: divide;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .percentage {
   grid-area: percentage;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
 }
 
 .parenthesis {
   grid-area: parenthesis;
-  background: var(--secondary-btn-color);
+  background: var(--secondary-btn-bg-color);
 }
 
 .eight {

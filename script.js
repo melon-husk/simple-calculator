@@ -22,9 +22,19 @@ const allowedKeyboardKeys = [
     "9",
     "0",
 ];
+const themeToggle = document.querySelector(".theme-toggle");
 const input = document.querySelector("input.input");
 const output = document.querySelector("div.output");
 const originalFontSize = parseInt(window.getComputedStyle(input).fontSize);
+themeToggle === null || themeToggle === void 0 ? void 0 : themeToggle.addEventListener("click", () => {
+    if (document.documentElement.getAttribute("data-theme") === "null" ||
+        document.documentElement.getAttribute("data-theme") === "light") {
+        document.documentElement.setAttribute("data-theme", "dark");
+    }
+    else {
+        document.documentElement.setAttribute("data-theme", "light");
+    }
+});
 const buttons = (Array.from(document.querySelectorAll("button.button")));
 window.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {

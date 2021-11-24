@@ -21,9 +21,20 @@ const allowedKeyboardKeys = [
   "9",
   "0",
 ];
+const themeToggle = document.querySelector(".theme-toggle");
 const input = <HTMLInputElement>document.querySelector("input.input");
 const output = <HTMLDivElement>document.querySelector("div.output");
 const originalFontSize = parseInt(window.getComputedStyle(input).fontSize);
+themeToggle?.addEventListener("click", () => {
+  if (
+    document.documentElement.getAttribute("data-theme") === "null" ||
+    document.documentElement.getAttribute("data-theme") === "light"
+  ) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+});
 const buttons = <HTMLButtonElement[]>(
   Array.from(document.querySelectorAll("button.button"))
 );
