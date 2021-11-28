@@ -1,6 +1,14 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 
 body {
+  display: -ms-grid;
   display: grid;
   place-items: center;
   height: 100vh;
@@ -61,8 +69,12 @@ button {
 .container {
   height: 100vh;
   width: 100vw;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 10px 1fr 10px 1fr 10px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px 1fr 10px
+    1fr 10px 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   gap: 10px 10px;
   grid-auto-flow: row;
@@ -82,8 +94,15 @@ button {
   color: var(--primary-text-color);
 }
 .input-output {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 7;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 0px 1fr 0px 1fr 0px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 0px 1fr 0px 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -97,6 +116,10 @@ button {
   background: var(--primary-display-bg-color);
 }
 .input {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 7;
   text-align: right;
   grid-area: input;
   background: inherit;
@@ -106,12 +129,24 @@ button {
   outline: none;
   font-family: "Source Sans Pro", sans-serif;
   color: inherit;
+  -webkit-transition: color 0.1s ease-in-out;
+  -o-transition: color 0.1s ease-in-out;
   transition: color 0.1s ease-in-out;
 }
 
 .output {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 7;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   grid-area: output;
   text-align: right;
@@ -121,11 +156,19 @@ button {
   padding-right: 15px;
   padding-bottom: 10px;
   color: var(--secondary-text-color);
+  -webkit-transition: color 0.1s ease-in-out;
+  -o-transition: color 0.1s ease-in-out;
   transition: color 0.1s ease-in-out;
 }
 .sub-menu {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 7;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 0px 1fr 0px 1fr 0px 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 0px 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
@@ -147,6 +190,8 @@ button {
   font-size: inherit;
   font-family: inherit;
   cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   background: transparent;
   color: inherit;
@@ -169,38 +214,56 @@ button {
   background: var(--secondary-btn-bg-hover);
 }
 .square-root {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
   grid-area: square-root;
 }
 
 .sin {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
   grid-area: sin;
 }
 
 .pi {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
   grid-area: pi;
 }
 
 .cos {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
   grid-area: cos;
 }
 
 .power {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
   grid-area: power;
 }
 
 .tan {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
   grid-area: tan;
 }
 
 .factorial {
+  -ms-grid-row: 1;
+  -ms-grid-column: 7;
   grid-area: factorial;
 }
 
 .log {
+  -ms-grid-row: 3;
+  -ms-grid-column: 7;
   grid-area: log;
 }
 
 .ac {
+  -ms-grid-row: 9;
+  -ms-grid-column: 1;
   grid-area: ac;
   background: var(--ac-btn-bg-color);
   color: var(--accent-text-color);
@@ -211,32 +274,44 @@ button {
 }
 
 .seven {
+  -ms-grid-row: 11;
+  -ms-grid-column: 1;
   grid-area: seven;
   margin-left: 10px;
 }
 
 .four {
+  -ms-grid-row: 13;
+  -ms-grid-column: 1;
   grid-area: four;
   margin-left: 10px;
 }
 
 .zero {
+  -ms-grid-row: 17;
+  -ms-grid-column: 1;
   grid-area: zero;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 
 .decimal {
+  -ms-grid-row: 17;
+  -ms-grid-column: 3;
   grid-area: decimal;
   margin-bottom: 10px;
 }
 
 .backspace {
+  -ms-grid-row: 17;
+  -ms-grid-column: 5;
   grid-area: backspace;
   margin-bottom: 10px;
 }
 
 .equal {
+  -ms-grid-row: 17;
+  -ms-grid-column: 7;
   grid-area: equal;
   background: var(--secondary-btn-bg-color);
   margin-right: 10px;
@@ -244,64 +319,90 @@ button {
 }
 
 .multiply {
+  -ms-grid-row: 11;
+  -ms-grid-column: 7;
   grid-area: multiply;
   background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .subtract {
+  -ms-grid-row: 13;
+  -ms-grid-column: 7;
   grid-area: subtract;
   background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .add {
+  -ms-grid-row: 15;
+  -ms-grid-column: 7;
   grid-area: add;
   background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .divide {
+  -ms-grid-row: 9;
+  -ms-grid-column: 7;
   grid-area: divide;
   background: var(--secondary-btn-bg-color);
   margin-right: 10px;
 }
 
 .percentage {
+  -ms-grid-row: 9;
+  -ms-grid-column: 5;
   grid-area: percentage;
   background: var(--secondary-btn-bg-color);
 }
 
 .parenthesis {
+  -ms-grid-row: 9;
+  -ms-grid-column: 3;
   grid-area: parenthesis;
   background: var(--secondary-btn-bg-color);
 }
 
 .eight {
+  -ms-grid-row: 11;
+  -ms-grid-column: 3;
   grid-area: eight;
 }
 
 .nine {
+  -ms-grid-row: 11;
+  -ms-grid-column: 5;
   grid-area: nine;
 }
 
 .five {
+  -ms-grid-row: 13;
+  -ms-grid-column: 3;
   grid-area: five;
 }
 
 .six {
+  -ms-grid-row: 13;
+  -ms-grid-column: 5;
   grid-area: six;
 }
 
 .three {
+  -ms-grid-row: 15;
+  -ms-grid-column: 5;
   grid-area: three;
 }
 
 .two {
+  -ms-grid-row: 15;
+  -ms-grid-column: 3;
   grid-area: two;
 }
 
 .one {
+  -ms-grid-row: 15;
+  -ms-grid-column: 1;
   grid-area: one;
   margin-left: 10px;
 }
