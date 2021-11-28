@@ -1,7 +1,3 @@
-let expression = <string>"";
-let expressionArray: string[] = [];
-let inputArray: string[] = [];
-let closingParenthesis = 0;
 const allowedKeyboardKeys = [
   "^",
   "!",
@@ -25,6 +21,9 @@ const themeToggle = document.querySelector(".theme-toggle");
 const input = <HTMLInputElement>document.querySelector("input.input");
 const output = <HTMLDivElement>document.querySelector("div.output");
 const originalFontSize = parseInt(window.getComputedStyle(input).fontSize);
+let expressionArray: string[] = [];
+let inputArray: string[] = [];
+let closingParenthesis = 0;
 themeToggle?.addEventListener("click", () => {
   if (
     document.documentElement.getAttribute("data-theme") === null ||
@@ -50,12 +49,9 @@ const buttons = <HTMLButtonElement[]>(
 window.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     try {
-      output.innerText = eval(expressionArray.join("")).toString();
-      console.log(expression, expressionArray, input.value);
+      equals();
     } catch (error) {
-      output.innerText = "Error";
-      console.log(error);
-      console.log(expression, expressionArray, input.value);
+      logError(error);
     }
   }
   if (event.key === "Backspace") {
@@ -74,169 +70,280 @@ buttons.forEach((button) => {
       const buttonValue = btn.innerText;
       switch (buttonValue) {
         case "√":
-          expressionArray.push("Math.sqrt(");
-          inputArray.push("√(");
-          setInputValue(inputArray.join(""));
-          closingParenthesis++;
+          squareRoot();
           break;
         case "π":
-          expressionArray.push("Math.PI");
-          inputArray.push("π");
-          setInputValue(inputArray.join(""));
+          pi();
           break;
         case "^":
-          expressionArray.push("**");
-          inputArray.push("^");
-          setInputValue(inputArray.join(""));
+          power();
           break;
         case "!":
-          expressionArray.push("factorial(");
-          inputArray.push("!(");
-          setInputValue(inputArray.join(""));
-          closingParenthesis++;
+          calculateFactorial();
           break;
         case "sin":
-          expressionArray.push("sinD(");
-          inputArray.push("sin(");
-          setInputValue(inputArray.join(""));
-          closingParenthesis++;
+          sin();
           break;
         case "cos":
-          expressionArray.push("cosD(");
-          inputArray.push("cos(");
-          setInputValue(inputArray.join(""));
-          closingParenthesis++;
+          cos();
           break;
         case "tan":
-          expressionArray.push("tanD(");
-          inputArray.push("tan(");
-          setInputValue(inputArray.join(""));
-          closingParenthesis++;
+          tan();
           break;
         case "log":
-          expressionArray.push("Math.log10(");
-          inputArray.push("log(");
-          setInputValue(inputArray.join(""));
-          closingParenthesis++;
+          log();
           break;
         case "AC":
           resetCalculator();
           break;
         case "( )":
-          if (closingParenthesis > 0) {
-            expressionArray.push(")");
-            inputArray.push(")");
-            setInputValue(inputArray.join(""));
-            closingParenthesis--;
-          } else {
-            expressionArray.push("(");
-            inputArray.push("(");
-            setInputValue(inputArray.join(""));
-            closingParenthesis++;
-          }
+          parenthesis();
           break;
         case "%":
-          expressionArray.push("* 0.01");
-          inputArray.push("%");
-          setInputValue(inputArray.join(""));
+          percentage();
           break;
         case "÷":
-          expressionArray.push("/");
-          inputArray.push("÷");
-          setInputValue(inputArray.join(""));
+          divide();
           break;
         case "7":
-          expressionArray.push("7");
-          inputArray.push("7");
-          setInputValue(inputArray.join(""));
+          numSeven();
           break;
         case "8":
-          expressionArray.push("8");
-          inputArray.push("8");
-          setInputValue(inputArray.join(""));
+          numEight();
           break;
         case "9":
-          expressionArray.push("9");
-          inputArray.push("9");
-          setInputValue(inputArray.join(""));
+          numNine();
           break;
         case "×":
-          expressionArray.push("*");
-          inputArray.push("×");
-          setInputValue(inputArray.join(""));
+          multiply();
           break;
         case "4":
-          expressionArray.push("4");
-          inputArray.push("4");
-          setInputValue(inputArray.join(""));
+          numFour();
           break;
         case "5":
-          expressionArray.push("5");
-          inputArray.push("5");
-          setInputValue(inputArray.join(""));
+          numFive();
           break;
         case "6":
-          expressionArray.push("6");
-          inputArray.push("6");
-          setInputValue(inputArray.join(""));
+          numSix();
           break;
         case "-":
-          expressionArray.push("-");
-          inputArray.push("-");
-          setInputValue(inputArray.join(""));
+          subtract();
           break;
         case "1":
-          expressionArray.push("1");
-          inputArray.push("1");
-          setInputValue(inputArray.join(""));
+          numOne();
           break;
         case "2":
-          expressionArray.push("2");
-          inputArray.push("2");
-          setInputValue(inputArray.join(""));
+          numTwo();
           break;
         case "3":
-          expressionArray.push("3");
-          inputArray.push("3");
-          setInputValue(inputArray.join(""));
+          numThree();
           break;
         case "+":
-          expressionArray.push("+");
-          inputArray.push("+");
-          setInputValue(inputArray.join(""));
+          add();
           break;
         case "0":
-          expressionArray.push("0");
-          inputArray.push("0");
-          setInputValue(inputArray.join(""));
+          numZero();
           break;
         case ".":
-          if (inputArray.length === 0 && expressionArray.length === 0) {
-            expressionArray.push("0.");
-            inputArray.push("0.");
-            setInputValue(inputArray.join(""));
-          } else {
-            expressionArray.push(".");
-            inputArray.push(".");
-            setInputValue(inputArray.join(""));
-          }
+          period();
           break;
         case "⌫":
           backspace();
           break;
         case "=":
-          output.innerText = eval(expressionArray.join("")).toString();
-          break;
-        default:
+          equals();
           break;
       }
     } catch (error) {
-      output.innerText = "Error";
-      console.log(error);
-      console.log(expression, expressionArray, input.value);
+      logError(error);
     }
   });
 });
+
+function logError(error: unknown) {
+  output.innerText = "Error";
+  output.style.color = "var(--error-text-color)";
+  input.style.color = "var(--error-text-color)";
+  console.log(error);
+  console.log(expressionArray, inputArray);
+}
+function resetError() {
+  output.style.color = `var(--secondary-text-color)`;
+  input.style.color = `inherit`;
+}
+function equals() {
+  output.innerText = eval(expressionArray.join("")).toString();
+}
+
+function period() {
+  if (inputArray.length === 0 && expressionArray.length === 0) {
+    expressionArray.push("0.");
+    inputArray.push("0.");
+    setInputValue(inputArray.join(""));
+  } else {
+    expressionArray.push(".");
+    inputArray.push(".");
+    setInputValue(inputArray.join(""));
+  }
+}
+
+function numZero() {
+  expressionArray.push("0");
+  inputArray.push("0");
+  setInputValue(inputArray.join(""));
+}
+
+function add() {
+  expressionArray.push("+");
+  inputArray.push("+");
+  setInputValue(inputArray.join(""));
+}
+
+function numThree() {
+  expressionArray.push("3");
+  inputArray.push("3");
+  setInputValue(inputArray.join(""));
+}
+
+function numTwo() {
+  expressionArray.push("2");
+  inputArray.push("2");
+  setInputValue(inputArray.join(""));
+}
+
+function numOne() {
+  expressionArray.push("1");
+  inputArray.push("1");
+  setInputValue(inputArray.join(""));
+}
+
+function subtract() {
+  expressionArray.push("-");
+  inputArray.push("-");
+  setInputValue(inputArray.join(""));
+}
+
+function numSix() {
+  expressionArray.push("6");
+  inputArray.push("6");
+  setInputValue(inputArray.join(""));
+}
+
+function numFive() {
+  expressionArray.push("5");
+  inputArray.push("5");
+  setInputValue(inputArray.join(""));
+}
+
+function numFour() {
+  expressionArray.push("4");
+  inputArray.push("4");
+  setInputValue(inputArray.join(""));
+}
+
+function multiply() {
+  expressionArray.push("*");
+  inputArray.push("×");
+  setInputValue(inputArray.join(""));
+}
+
+function numNine() {
+  expressionArray.push("9");
+  inputArray.push("9");
+  setInputValue(inputArray.join(""));
+}
+
+function numEight() {
+  expressionArray.push("8");
+  inputArray.push("8");
+  setInputValue(inputArray.join(""));
+}
+
+function numSeven() {
+  expressionArray.push("7");
+  inputArray.push("7");
+  setInputValue(inputArray.join(""));
+}
+
+function divide() {
+  expressionArray.push("/");
+  inputArray.push("÷");
+  setInputValue(inputArray.join(""));
+}
+
+function percentage() {
+  expressionArray.push("* 0.01");
+  inputArray.push("%");
+  setInputValue(inputArray.join(""));
+}
+
+function parenthesis() {
+  if (closingParenthesis > 0) {
+    expressionArray.push(")");
+    inputArray.push(")");
+    setInputValue(inputArray.join(""));
+    closingParenthesis--;
+  } else {
+    expressionArray.push("(");
+    inputArray.push("(");
+    setInputValue(inputArray.join(""));
+    closingParenthesis++;
+  }
+}
+
+function log() {
+  expressionArray.push("Math.log10(");
+  inputArray.push("log(");
+  setInputValue(inputArray.join(""));
+  closingParenthesis++;
+}
+
+function tan() {
+  expressionArray.push("tanD(");
+  inputArray.push("tan(");
+  setInputValue(inputArray.join(""));
+  closingParenthesis++;
+}
+
+function cos() {
+  expressionArray.push("cosD(");
+  inputArray.push("cos(");
+  setInputValue(inputArray.join(""));
+  closingParenthesis++;
+}
+
+function sin() {
+  expressionArray.push("sinD(");
+  inputArray.push("sin(");
+  setInputValue(inputArray.join(""));
+  closingParenthesis++;
+}
+
+function calculateFactorial() {
+  expressionArray.push("factorial(");
+  inputArray.push("!(");
+  setInputValue(inputArray.join(""));
+  closingParenthesis++;
+}
+
+function power() {
+  expressionArray.push("**");
+  inputArray.push("^");
+  setInputValue(inputArray.join(""));
+}
+
+function pi() {
+  expressionArray.push("Math.PI");
+  inputArray.push("π");
+  setInputValue(inputArray.join(""));
+}
+
+function squareRoot() {
+  expressionArray.push("Math.sqrt(");
+  inputArray.push("√(");
+  setInputValue(inputArray.join(""));
+  closingParenthesis++;
+}
 
 function factorial(x: number): number {
   return x > 1 ? x * factorial(x - 1) : 1;
@@ -258,32 +365,29 @@ function tanD(angle: number): number {
   return Math.tan(angle * (Math.PI / 180));
 }
 
-function scaleFontDown(inputElement: HTMLInputElement, scale: number = 10) {
-  const fontSizeNumber = parseInt(
-    window.getComputedStyle(inputElement).fontSize
-  );
+function scaleFontDown(scale: number = 10) {
+  const fontSizeNumber = parseInt(window.getComputedStyle(input).fontSize);
   const minimumFontSize = originalFontSize / 1.5;
-  const inputLength = inputElement.value.length;
+  const inputLength = input.value.length;
   const breakpoint = (fontSizeNumber * inputLength) / 2;
-  const inputWidth = inputElement.clientWidth;
+  const inputWidth = input.clientWidth;
   console.log({ inputLength, breakpoint, inputWidth });
   if (breakpoint > inputWidth && fontSizeNumber > minimumFontSize) {
-    inputElement.style.fontSize = `${fontSizeNumber - scale}px`;
-    console.log(inputElement.style.fontSize);
+    input.style.fontSize = `${fontSizeNumber - scale}px`;
+    console.log(input.style.fontSize);
   }
 }
-function scaleFontUp(inputElement: HTMLInputElement, scale: number = 10) {
-  const fontSizeNumber = parseInt(
-    window.getComputedStyle(inputElement).fontSize
-  );
+function scaleFontUp(scale: number = 10) {
+  const fontSizeNumber = parseInt(window.getComputedStyle(input).fontSize);
   if (fontSizeNumber < originalFontSize) {
-    inputElement.style.fontSize = `${fontSizeNumber + scale}px`;
-    console.log(inputElement.style.fontSize);
+    input.style.fontSize = `${fontSizeNumber + scale}px`;
+    console.log(input.style.fontSize);
   }
 }
 function setInputValue(inputValue: string) {
   input.value = inputValue;
-  scaleFontDown(input);
+  resetError();
+  scaleFontDown();
 }
 function resetCalculator() {
   expressionArray = [];
@@ -297,13 +401,14 @@ function backspace() {
   if (expressionArray[expressionArray.length - 1] === "(") {
     closingParenthesis--;
   }
-  scaleFontUp(input);
+  scaleFontUp();
   expressionArray.pop();
   inputArray.pop();
   setInputValue(inputArray.join(""));
   output.innerText = "";
+  resetError();
 }
-const resetFontSize = () => {
+function resetFontSize() {
   input.style.fontSize = `${originalFontSize}px`;
   console.log({ originalFontSize });
-};
+}

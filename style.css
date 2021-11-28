@@ -20,6 +20,7 @@ body {
   --secondary-btn-bg-color: #b9d5f5;
   --secondary-btn-bg-hover: #aec9f7;
   --sub-menu-hover-bg-color: #d6d4d4;
+  --error-text-color: #9d3313;
   --theme-toggle-bg-color: #1a1a1a;
   --theme-toggle-stroke-color: #ededed;
 }
@@ -27,7 +28,7 @@ body {
   --container-bg-color: #1a1a1a;
   --primary-text-color: #fffdea;
   --secondary-text-color: #dedcca;
-  --primary-display-bg-color: #495a62;
+  --primary-display-bg-color: #33383f;
   --accent-text-color: #222222;
   --ac-btn-bg-color: #b4dc9b;
   --ac-btn-bg-hover: #a4d078;
@@ -36,12 +37,14 @@ body {
   --secondary-btn-bg-color: #619dd4;
   --secondary-btn-bg-hover: #69a9e6;
   --sub-menu-hover-bg-color: #222222;
+  --error-text-color: #ff835e;
   --theme-toggle-bg-color: #ededed;
   --theme-toggle-stroke-color: #1a1a1a;
 }
 button {
   outline: none;
 }
+
 .theme-toggle {
   position: fixed;
   top: 0;
@@ -93,6 +96,33 @@ button {
   border-radius: 0px 0px 20px 20px;
   background: var(--primary-display-bg-color);
 }
+.input {
+  text-align: right;
+  grid-area: input;
+  background: inherit;
+  padding-right: 15px;
+  font-size: 4rem;
+  border: none;
+  outline: none;
+  font-family: "Source Sans Pro", sans-serif;
+  color: inherit;
+  transition: color 0.1s ease-in-out;
+}
+
+.output {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  grid-area: output;
+  text-align: right;
+  font-size: 2rem;
+  background: inherit;
+  border-radius: 0px 0px 20px 20px;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  color: var(--secondary-text-color);
+  transition: color 0.1s ease-in-out;
+}
 .sub-menu {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -110,31 +140,7 @@ button {
 .sub-menu-hover:hover {
   background: var(--sub-menu-hover-bg-color);
 }
-.input {
-  text-align: right;
-  grid-area: input;
-  background: inherit;
-  padding-right: 15px;
-  font-size: 4rem;
-  border: none;
-  outline: none;
-  font-family: "Source Sans Pro", sans-serif;
-  color: inherit;
-}
 
-.output {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  grid-area: output;
-  text-align: right;
-  font-size: 2rem;
-  background: inherit;
-  border-radius: 0px 0px 20px 20px;
-  padding-right: 15px;
-  padding-bottom: 10px;
-  color: var(--secondary-text-color);
-}
 .button {
   border-radius: 20px;
   border: none;
